@@ -1,4 +1,9 @@
-
+User.create!(name:  "EikoNakanisi",
+             section: "Hyogo_univ",
+             email: "admin2018@email.co.jp",
+             password:              "admin2018",
+             password_confirmation: "admin2018",
+             admin: true)
 
 50.times do |i|
      User.create(:name => "テスト #{i}",

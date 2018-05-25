@@ -50,7 +50,7 @@ end
 
   # 更新を許可するカラムを定義
   def self.updatable_attributes
-    ["patient_id","kisaibi","age","kiou","katudou","ninsiki","haisetu","med1","med2","med3","med4","med5","kankyo1","kankyo2","goukei","yobou"]
+    ["kisaibi","age","kiou","katudou","ninsiki","haisetu","med1","med2","med3","med4","med5","kankyo1","kankyo2","goukei","yobou","patient_id"]
   end
 
 

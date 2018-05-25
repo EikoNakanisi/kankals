@@ -4,11 +4,16 @@
 
 <a href="javascript:history.back()" class="btn btn-warning btn-lg active">戻る</a>
 
-    <%= link_to 'グラフ', graphs_path, class: 'btn btn-info btn-lg btn-block active' %>
+    <%= link_to 'ベッドマップ', graphs_path, class: 'btn btn-info btn-lg btn-block active' %>
     <%= link_to '看護記録', nreport_path(@patient.id), class: 'btn btn-info btn-lg btn-block active' %>
     <%= link_to '採血結果', kekka_path(@patient.id), class: 'btn btn-info btn-lg btn-block active' %>
     <%= link_to '看護計画', plan_path(@patient.id), class: 'btn btn-info btn-lg btn-block active' %>
     <%= link_to '転倒テンプレート', tentou_path(@patient.id), class: 'btn btn-info btn-lg btn-block active' %>
+    <%= link_to '1号室検温表', graph_path(1), class: 'btn btn-success btn-lg btn-block active' %>
+    <%= link_to '2号室検温表', graph_path(2), class: 'btn btn-success btn-lg btn-block active' %>
+    <%= link_to '3号室検温表', graph_path(3), class: 'btn btn-success btn-lg btn-block active' %>
+    <%= link_to '4号室検温表', graph_path(4), class: 'btn btn-success btn-lg btn-block active' %>
+    <%= link_to '5号室検温表', graph_path(5), class: 'btn btn-success btn-lg btn-block active' %>
 
 
 </div>

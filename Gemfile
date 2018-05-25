@@ -60,6 +60,9 @@ gem 'gon'
 gem 'roo'
 gem "ransack"
 gem 'faker','1.8.7'
+gem 'devise'
+gem 'rails_admin'
+
 
 
 

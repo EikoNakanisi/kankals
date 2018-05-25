@@ -8,5 +8,9 @@ class ApplicationController < ActionController::Base
     unless logged_in?
       redirect_to login_url
     end
+
+
+
+
   end
 end
