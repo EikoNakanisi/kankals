@@ -52,14 +52,19 @@ enum aid: {独歩:0, 護送:1, 担送:2}
 enum hand_mmt: {０筋収縮なし:0, １わずかに筋収縮あり:1, ２重力を除けば全可動域動く:2, ３抵抗をくわえなければ重力に打ち勝って完全に動く:3, ４いくらか抵抗を加えてもなお重力にうちかって完全に動く:4, ５強い抵抗を加えてもなお重力にうちかって完全に動く:5}
 enum foot_mmt: {０足筋収縮なし:0, １足わずかに筋収縮あり:1, ２足重力を除けば全可動域動く:2, ３足抵抗をくわえなければ重力に打ち勝って完全に動く:3, ４足いくらか抵抗を加えてもなお重力にうちかって完全に動く:4, ５足強い抵抗を加えてもなお重力にうちかって完全に動く:5}
 
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << csv_column_names
+  def self.to_csv
+    CSV.generate do |csv|
+      # column_namesはカラム名を配列で返す
+      # 例: ["id", "name", "price", "released_on", ...]
+      csv << column_names
       all.each do |patient|
-        csv << patient.csv_column_values
+        # attributes はカラム名と値のハッシュを返す
+        # 例: {"id"=>1, "name"=>"レコーダー", "price"=>3000, ... }
+        # valudes_at はハッシュから引数で指定したキーに対応する値を取り出し、配列にして返す
+        # 下の行は最終的に column_namesで指定したvalue値の配列を返す
+        csv << patient.attributes.values_at(*column_names)
       end
     end
-  end
 
   def self.csv_column_names
     ["id","患者名","カナ","入院日","部屋番号","誕生日","性別","診断名","既往","血液型",
@@ -83,22 +88,28 @@ enum foot_mmt: {０足筋収縮なし:0, １足わずかに筋収縮あり:1, �
   end
 
 
-def self.import(file)
-  spreadsheet = Roo::Spreadsheet.open(file.path)
-  header = spreadsheet.row(1)
-  (2..spreadsheet.last_row).each do |i|
-    row = Hash[[header, spreadsheet.row(i)].transpose]
-    patient = find_by(id: row["id"]) || new
-    patient.attributes = row.to_hash
-    patient.save!
-  end
-end 
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+
+    (2..spreadsheet.last_row).each do |i|
+      # {カラム名 => 値, ...} のハッシュを作成する
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+
+      # IDが見つかれば、レコードを呼び出し、見つかれなければ、新しく作成
+      patient = find_by(id: row["id"]) || new
+      # CSVからデータを取得し、設定する
+      patient.attributes = row.to_hash.slice(*updatable_attributes)
+      # 保存する
+      patient.save!
+    end
+  end 
 
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
-    when ".csv" then Roo::CSV.new(file.path, nil, :ignore)
-    when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
-    when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
+    when '.csv'  then Roo::CSV.new(file.path,    nil, :ignore)
+    when '.xls'  then Roo::Excel.new(file.path,  nil, :ignore)
+    when '.xlsx' then Roo::Excelx.new(file.path, nil, :ignore)
     when '.ods'  then Roo::OpenOffice.new(file.path, nil, :ignore)
     else raise "Unknown file type: #{file.original_filename}"
     end
@@ -117,4 +128,4 @@ end
 
 
 end
-
+end

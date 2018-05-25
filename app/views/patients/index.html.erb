@@ -129,14 +129,6 @@
 </table>
 
 <br>
-<div class="col-sm-12 row text-center">
-<%= link_to 'CSV', patients_path(format: "csv"), class: 'btn btn-primary btn-left', id: "Download-btn" %>
-<%= link_to 'Excel', patients_path(format: "xls"), class: 'btn btn-primary btn-left', id: "Download-btn" %>
-</div>
-<%= form_tag import_patients_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "インポート" %>
-<% end %>
 
 <%= link_to '新規患者投稿', new_patient_path, class: 'btn btn-primary' %>
 </div>

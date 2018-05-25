@@ -4,19 +4,9 @@ class PatientsController < ApplicationController
   def index
     @patients = Patient.all
     @count_patients = Patient.count
-    
-    respond_to do |format|
-      format.html
-      format.csv { send_data @patients.to_csv }
-      format.xls { send_data @patients.to_csv(col_sep: "\t") }
-    end
   end
 
-def import
-  # fileはtmpに自動で一時保存される
-  Patient.import(params[:file])
-  redirect_to patients_url, notice: "商品を追加しました。"
-end
+
 
   def show
     @patient = Patient.find(params[:id])
@@ -78,3 +68,5 @@ end
     )
   end
 end
+
+
