@@ -1,0 +1,2 @@
+module PdetailsHelper
+end

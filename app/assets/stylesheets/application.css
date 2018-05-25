@@ -1,15 +1,84 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@charset "utf-8";
+
+/* body */
+body {
+  background: #FFFFFF;
+}
+footer {
+  margin-top: 40px;
+  background: #000099;
+}
+
+.sidebar {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto
+  }
+}
+
+/* navbar */
+.navbar {
+  background-color: #000099;
+}
+.navbar-header img {
+  margin-top: 5px;
+  height: 40px;
+}
+
+/* cover */
+.cover {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 500px;
+  background: url("/images/toppage.png") center center no-repeat;
+  background-size: cover;
+}
+.cover .cover-inner {
+  height: 100%;
+  margin: auto;
+  display: table;
+}
+.cover .cover-inner .cover-contents {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+}
+.cover .cover-inner .cover-contents h1 {
+  margin: 0 0 20px 0;
+  color: #FFFFFF;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+
+.highcharts-background {
+  fill: #F0F6FF;
+  stroke: #D3D3D3;
+  stroke-width: 2px;
+}
+
+.bs-docs-header {
+margin-top: 45px;
+padding: 0.5em;/*文字周りの余白*/
+color: #010101;/*文字色*/
+background: #B8DAE6;/*背景色*/
+border-bottom: solid 3px #FFFFFF;/*下線*/
+}
+
+      .box div {
+        border: 1px solid #000;
+        padding: 1em;
+        text-align: center;
+        background-color: #dedede;
+}
