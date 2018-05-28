@@ -1,0 +1,11 @@
+
+<div class="honbun">
+
+
+<h1>id: <%= @dreport.id %> の編集ページ</h1>
+
+<%= render 'form', dreport: @dreport %>
+
+<%= link_to '一覧に戻る', dreports_path %>
+<%= link_to '削除', @dreport, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+</div>

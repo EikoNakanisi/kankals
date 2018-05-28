@@ -61,6 +61,15 @@ Rails.application.routes.draw do
   end
 
   resources :nreports
+  resources :dreports
+  resources :ereports
+
+  resources :enshus do
+    collection do
+      get :search
+      post :import
+    end
+  end
 
 end
 

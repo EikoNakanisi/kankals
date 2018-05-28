@@ -42,31 +42,19 @@
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="today">
 <h2></h2>
-<% @nreports.each do |nreport| %>
+<% @ereports.each do |ereport| %>
 <div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading">【SOAP】<%= nreport.nrt.strftime('%Y年%m月%d日%H時%M分') %><br>
-  01版：<%= nreport.nrt.strftime('%Y年%m月%d日%H時%M分') %>　看護師）看護花子</div>
+  <div class="panel-heading">【他職種記録】<%= ereport.ert.strftime('%Y年%m月%d日%H時%M分') %><br>
+  01版：<%= ereport.ert.strftime('%Y年%m月%d日%H時%M分') %>　他職種）他職種子</div>
   <table class="table-bordered">
   <tr>
-    <td>＃<%= nreport.nrn %></td>
-    <td class="text-left"><font size="+1"><%= nreport.nrm %></font></td>
+    <td></td>
+    <td class="text-left"><font size="+1"><%= ereport.erm %></font></td>
   </tr>
   <tr>
-    <td>（S）</td>
-    <td class="text-left"><font size="+1"><%= simple_format(nreport.nrs) %></font></td>
-  </tr>
-  <tr>
-    <td>（O）</td>
-    <td class="text-left"><font size="+1"><%= simple_format(nreport.nro) %></font></td>
-  </tr>
-  <tr>
-    <td>（A）</td>
-    <td class="text-left"><font size="+1"><%= simple_format(nreport.nra) %></font></td>
-  </tr>
-  <tr>
-    <td>（P）</td>
-    <td class="text-left"><font size="+1"><%= simple_format(nreport.nrp) %></font></td>
+    <td>記録</td>
+    <td class="text-left"><font size="+1"><%= simple_format(ereport.ers) %></font></td>
   </tr>
   </table>
 
@@ -85,7 +73,7 @@
 </div>
 </div>
 
-<%= link_to '一覧に戻る', nreports_path %>
+<%= link_to '一覧に戻る', ereports_path %>
 </div>
 </div>
 

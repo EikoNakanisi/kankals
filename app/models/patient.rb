@@ -3,6 +3,8 @@ class Patient < ApplicationRecord
   has_many :saiketus
   has_many :plans
   has_many :nreports
+  has_many :dreports
+  has_many :ereports
 
 validates :p_name,    length: { maximum: 20 }
 validates :p_kana,    length: { maximum: 20 }

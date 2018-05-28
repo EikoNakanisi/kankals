@@ -3,6 +3,7 @@ class KekkasController < ApplicationController
 
   def index
     @patients = Patient.all.includes(:saiketus)
+    @saiketus = Saiketu.all
   end
 
   def show

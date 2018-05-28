@@ -1,0 +1,34 @@
+<%= form_for(ereport) do |f| %>
+  <div class="row">
+    <div class="col-sm-6">
+<form class="form-inline">
+
+    <div class="form-group">
+    <%= f.label :patient_id, '患者ＩＤ' %>
+    <%= f.text_field :patient_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :erm, '題名' %>
+    <%= f.text_field :erm, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ert, '登録日時' %>
+    <%= f.datetime_select :ert,
+    :start_year => Time.now.year,
+    :end_year => Time.now.year + 2,
+    :use_month_numbers => true,
+    :minute_step => 10 %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :ers, '1s' %><%= f.text_area :ers, class: 'form-control', rows: 3 %>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">投稿</button>
+</form>
+
+</div>
+</div>
+<% end %>

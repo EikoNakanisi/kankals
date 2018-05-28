@@ -1,7 +1,4 @@
-<div class="col-sm-12">
-<div class="bs-docs-header" id="content">
-</div>
-</div>
+<div class="honbun">
 <h1>id: <%= @kansatu.id %> の詳細ページ</h1>
 
     <p><%= @kansatu.category %></p>
@@ -20,3 +17,4 @@
 <%= link_to '一覧に戻る', kansatus_path %>
 <%= link_to '編集', edit_kansatu_path(@kansatu) %>
 <%= link_to '削除', @kansatu, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+</div>

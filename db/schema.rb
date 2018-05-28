@@ -10,7 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180525125935) do
+ActiveRecord::Schema.define(version: 20180528022347) do
+
+  create_table "dreports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "patient_id"
+    t.text     "drs",        limit: 65535
+    t.text     "dro",        limit: 65535
+    t.text     "dra",        limit: 65535
+    t.text     "drp",        limit: 65535
+    t.datetime "drt"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["patient_id"], name: "index_dreports_on_patient_id", using: :btree
+  end
+
+  create_table "enshus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date     "kisaibi"
+    t.integer  "age"
+    t.integer  "kiou"
+    t.integer  "katudou"
+    t.integer  "ninsiki"
+    t.integer  "haisetu"
+    t.integer  "med1"
+    t.integer  "med2"
+    t.integer  "med3"
+    t.integer  "med4"
+    t.integer  "med5"
+    t.integer  "kankyo1"
+    t.integer  "kankyo2"
+    t.integer  "goukei"
+    t.integer  "kikendo"
+    t.string   "yobou"
+    t.string   "string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ereports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "patient_id"
+    t.text     "ers",        limit: 65535
+    t.datetime "ert"
+    t.string   "erm"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["patient_id"], name: "index_ereports_on_patient_id", using: :btree
+  end
 
   create_table "kanris", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -208,6 +252,8 @@ ActiveRecord::Schema.define(version: 20180525125935) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "dreports", "patients"
+  add_foreign_key "ereports", "patients"
   add_foreign_key "kansatus", "patients"
   add_foreign_key "nreports", "patients"
   add_foreign_key "pdetails", "plans"
