@@ -1,32 +1,5 @@
-<div class="col-sm-12">
-<div class="bs-docs-header" id="content">
-<div class="container">
 
-<div class="row">
-  <div class="col-md-2"><h2><ruby><rb><%= @patient.p_name %><rt><%= @patient.p_kana %></ruby></h2></div>
-
-<% if @patient.gender == '男' %>
-<div class="col-sm-1"><br><img border="0" src="../images/men1.png" width="60" height="60" alt="男性" title="男性"></div>
-<% else %>
-<div class="col-sm-1"><br><img border="0" src="../images/women1.png" width="60" height="60" alt="女性" title="女性"></div>
-<% end %>
-
-  <div class="col-md-4"><h3>生年月日：<%= @patient.birth_date.strftime('%Y年%m月%d日') %></h3></div>
-  <div class="col-md-2"><h3>年齢：<%= @patient.age %>歳</h3></div>
-<div class="col-sm-6"><h4>感染症：<%= @patient.infection %>&emsp;
-アレルギー：<%= @patient.allergic %></h4></div>
-</div>
-
-<div class="row">
-  <div class="col-md-3"><h4>入院日:<%= @patient.hos_date.strftime('%Y年%m月%d日 %H:%M') %></h4></div>
-  <div class="col-md-2"><h4>部屋番号：<%= @patient.room_no %></h4></div>
-  <div class="col-md-5"><h4>血液型：<%= @patient.bloodtype %>型&emsp;&emsp;身長：<%= @patient.height %>cm&emsp;体重：<%= @patient.weight %>kg
-</h4></div>
-</div>
-
-</div></div>
-</div>
-
+<div class="honbun">
 <div class="col-sm-10">
 <h3>採血採取日時:<%= @day.tori_day.strftime('%Y年%m月%d日') %> </h3>
 
@@ -68,6 +41,7 @@
 </table>
 
 <%= link_to '一覧に戻る', kekkas_path %>
+</div>
 </div>
 
 <div class="row col-sm-2">
