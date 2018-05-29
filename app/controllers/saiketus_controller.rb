@@ -2,7 +2,7 @@ class SaiketusController < ApplicationController
   before_action :require_user_logged_in
 
   def index
-    @saiketus = Saiketu.all
+    @saiketus = Saiketu.all.order("id ASC")
     @q        = Saiketu.search(params[:q])
     @saiketus = @q.result(distinct: true)
     respond_to do |format|

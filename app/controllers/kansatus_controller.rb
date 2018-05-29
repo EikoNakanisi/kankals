@@ -2,7 +2,7 @@ class KansatusController < ApplicationController
   before_action :require_user_logged_in
 
   def index
-    @kansatus = Kansatu.all
+    @kansatus = Kansatu.all.order("id ASC")
     @q        = Kansatu.search(params[:q])
     @kansatus = @q.result(distinct: true)
     respond_to do |format|

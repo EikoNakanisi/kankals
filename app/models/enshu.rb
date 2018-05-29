@@ -2,7 +2,8 @@ class Enshu < ApplicationRecord
 
 validates :yobou,    length: { maximum: 250 }
 enum kikendo: {Ⅰ:1, Ⅱ:2,Ⅲ:3}
-
+  
+  
 def goukei
   age + kiou + katudou + ninsiki + haisetu + med1 + med2 + med3 + med4 + med5 + kankyo1 + kankyo2
 end

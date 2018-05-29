@@ -77,6 +77,10 @@ GEM
       temple (>= 0.8.0)
       tilt
     hash-deep-merge (0.1.1)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -221,6 +225,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.10)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (0.1.1)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.6.2)
@@ -243,6 +248,8 @@ DEPENDENCIES
   devise
   faker (= 1.8.7)
   gon
+  hirb
+  hirb-unicode
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

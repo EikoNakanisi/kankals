@@ -43,6 +43,8 @@ validates :hobby,    length: { maximum: 250 }
 validates :anniversary,    length: { maximum: 250 }
 validates :fa_prob,    length: { maximum: 250 }
 
+
+
 def age
   date_format = "%Y%m%d"
   (Date.today.strftime(date_format).to_i - birth_date.strftime(date_format).to_i) / 10000

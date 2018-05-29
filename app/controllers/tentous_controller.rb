@@ -2,7 +2,7 @@ class TentousController < ApplicationController
   before_action :require_user_logged_in
 
   def index
-    @tentous = Tentou.all
+    @tentous = Tentou.all.order("id ASC")
     @q        = Tentou.search(params[:q])
     @tentous = @q.result(distinct: true)
     respond_to do |format|

@@ -7,7 +7,7 @@ class NreportsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
-    @nreports = @patient.nreports
+    @nreports = @patient.nreports.order("nrt ASC")
   end
 
   def new

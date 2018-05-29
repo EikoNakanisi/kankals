@@ -14,6 +14,7 @@ validates :j_3d,    length: { maximum: 50 }
 validates :s_4d,    length: { maximum: 50 }
 
 
+  
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << csv_column_names

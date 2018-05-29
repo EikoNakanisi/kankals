@@ -7,7 +7,7 @@ class PlansController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
-    @plans = @patient.plans
+    @plans = @patient.plans.order("id ASC")
   end
 
   def new

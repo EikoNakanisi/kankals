@@ -6,6 +6,7 @@ validates :kekka_m,    length: { maximum: 2 }
 validates :tani,    length: { maximum: 10 }
 
 
+  
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << csv_column_names

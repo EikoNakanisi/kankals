@@ -2,7 +2,7 @@ class EnshusController < ApplicationController
   before_action :require_user_logged_in
 
   def index
-    @enshus = Enshu.all
+    @enshus = Enshu.all.order("id ASC")
     @q        = Enshu.search(params[:q])
     @enshus = @q.result(distinct: true)
     respond_to do |format|

@@ -13,7 +13,7 @@ class PdetailsController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
-    @pdetails = @plan.pdetails
+    @pdetails = @plan.pdetails.order("id ASC")
   end
 
   def new

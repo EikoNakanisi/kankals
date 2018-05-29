@@ -8,7 +8,7 @@ class GraphsController < ApplicationController
   def show
     
     @patient = Patient.find(params[:id])
-    @kansatus = @patient.kansatus
+    @kansatus = @patient.kansatus.order("id ASC")
 
     @taions = @kansatus.where(:ob_name => "体温")
     @myakus = @kansatus.where(:ob_name => "脈拍")

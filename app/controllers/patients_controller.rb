@@ -2,8 +2,9 @@ class PatientsController < ApplicationController
   before_action :require_user_logged_in
   
   def index
-    @patients = Patient.all
+    @patients = Patient.all.order("id ASC")
     @count_patients = Patient.count
+    
   end
 
 
