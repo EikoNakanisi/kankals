@@ -81,7 +81,16 @@ Rails.application.routes.draw do
       post :import
     end
   end
-
+  resources :injections do
+    collection do
+      post :import
+    end
+  end
+  resources :naifukus do
+    collection do
+      post :import
+    end
+  end
   
   
 end

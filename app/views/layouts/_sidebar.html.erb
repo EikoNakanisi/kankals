@@ -10,6 +10,8 @@
     <%= link_to '他職種記録', ereport_path(@patient.id), class: 'btn btn-info btn-block' %>
     <%= link_to '医師指示簿', dinstruction_path(@patient.id), class: 'btn btn-info btn-block' %>
     <%= link_to '看護指示簿', ninstruction_path(@patient.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '注射指示', injection_path(@patient.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '内服指示', naifuku_path(@patient.id), class: 'btn btn-info btn-block' %>
     <%= link_to '採血結果', kekka_path(@patient.id), class: 'btn btn-info bbtn-block' %>
     <%= link_to 'プロフィール', patient_path(@patient.id), class: 'btn btn-info btn-block' %>
     <%= link_to '看護計画', plan_path(@patient.id), class: 'btn btn-info btn-block' %>

@@ -12,7 +12,11 @@ class KekkasController < ApplicationController
     @day = @saiketus.find_by(params[:id])
   end
 
-
+  private
+  # Strong Parameter
+    def current_patient
+      @current_patient ||= Patient.find_by(id: params[:patient_id])
+    end
 end
 
 

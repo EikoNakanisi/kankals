@@ -63,7 +63,7 @@ class NinstructionsController < ApplicationController
 
   def ninstruction_params
     params.require(:ninstruction).permit(:patient_id,
-:yoteitime,:acttime,:actflag,:sijiname,:siji,:gotime
+:yoteitime,:acttime,:actflag,:sijiname,:siji
     )
   end
 

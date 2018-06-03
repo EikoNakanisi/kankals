@@ -2,11 +2,47 @@
 
 /* body */
 body {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 footer {
   margin-top: 40px;
   background: #000099;
+}
+
+/* navbar */
+.navbar {
+  background-color: #000099;
+}
+.navbar-header img {
+  margin-top: 5px;
+  height: 40px;
+}
+
+/* cover */
+.cover {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 300px;
+  background: url("/images/toppage.png") center center no-repeat;
+  background-size: cover;
+}
+.cover .cover-inner {
+  height: 100%;
+  margin: auto;
+  display: table;
+}
+.cover .cover-inner .cover-contents {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+}
+.cover .cover-inner .cover-contents h1 {
+  margin: 0 0 20px 0;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.15em;
 }
 
 .sidebar {
@@ -25,41 +61,6 @@ footer {
   }
 }
 
-/* navbar */
-.navbar {
-  background-color: #000099;
-}
-.navbar-header img {
-  margin-top: 5px;
-  height: 40px;
-}
-
-/* cover */
-.cover {
-  margin-top: -20px;
-  margin-bottom: 20px;
-  width: 100%;
-  height: 500px;
-  background: url("/images/toppage.png") center center no-repeat;
-  background-size: cover;
-}
-.cover .cover-inner {
-  height: 100%;
-  margin: auto;
-  display: table;
-}
-.cover .cover-inner .cover-contents {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  position: relative;
-}
-.cover .cover-inner .cover-contents h1 {
-  margin: 0 0 20px 0;
-  color: #FFFFFF;
-  font-weight: bold;
-  letter-spacing: 0.15em;
-}
 
 
 .highcharts-background {
@@ -69,7 +70,7 @@ footer {
 }
 
 .bs-docs-header {
-margin-top: 45px;
+margin-top: 0px;
 padding: 0.5em;/*文字周りの余白*/
 color: #010101;/*文字色*/
 background: #B8DAE6;/*背景色*/
@@ -84,5 +85,5 @@ border-bottom: solid 3px #FFFFFF;/*下線*/
 }
 
 .honbun {
-margin-top: 55px;
+margin-top: 0px;
 }

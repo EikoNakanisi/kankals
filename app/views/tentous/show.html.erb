@@ -1,10 +1,7 @@
-<div class="col-sm-12">
-<div class="bs-docs-header" id="content">
-</div>
-</div>
-<h2>転倒転落アセスメントスコア<%= @tentou.id %></h2>
-    <p>患者ＩＤ：<%= @tentou.patient_id %></p>
-    <p>記載日：<%= @tentou.kisaibi %></p>
+<div class="col-sm-10">
+<h3>転倒転落アセスメントスコア</h3>
+    <p>患者ＩＤ：<%= @tentou.patient_id %>&emsp;
+    記載日：<%= @tentou.kisaibi %></p>
   <div class="row">
     <div class="col-sm-6">
 <table class="table table-bordered table-condensed table-hover" style="table-layout:fixed;width:100%;">
@@ -138,3 +135,34 @@
 <%= link_to '一覧に戻る', tentous_path %>
 <%= link_to '編集', edit_tentou_path(@tentou) %>
 <%= link_to '削除', @tentou, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+</div>
+<div class="row col-sm-2">
+    <div class="sidebar-nav affix" role="complementary">
+
+<div class="btn-group-vertical" role="group" aria-label="..." style="width:100%;">
+
+<a href="javascript:history.back()" class="btn btn-warning btn-lg">戻る</a>
+
+    <%= link_to 'ベッドマップ', patients_path, class: 'btn btn-info btn-block' %>
+    <%= link_to '医師記録', dreport_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '看護記録', nreport_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '他職種記録', ereport_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '医師指示簿', dinstruction_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '看護指示簿', ninstruction_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '注射指示', injection_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '内服指示', naifuku_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '採血結果', kekka_path(@tentou.id), class: 'btn btn-info bbtn-block' %>
+    <%= link_to 'プロフィール', patient_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '看護計画', plan_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '転倒テンプレート', tentou_path(@tentou.id), class: 'btn btn-info btn-block' %>
+    <%= link_to '1号室検温表', graph_path(1), class: 'btn btn-success btn-block' %>
+    <%= link_to '2号室検温表', graph_path(2), class: 'btn btn-success btn-block' %>
+    <%= link_to '3号室検温表', graph_path(3), class: 'btn btn-success bbtn-block' %>
+    <%= link_to '4号室検温表', graph_path(4), class: 'btn btn-success btn-block' %>
+    <%= link_to '5号室検温表', graph_path(5), class: 'btn btn-success btn-block' %>
+
+
+</div>
+
+</div>
+</div>

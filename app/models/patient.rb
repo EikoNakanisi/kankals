@@ -7,6 +7,8 @@ class Patient < ApplicationRecord
   has_many :ereports
   has_many :dinstructions
   has_many :ninstructions
+  has_many :injections
+  has_many :naifukus
 
 
 validates :p_name,    length: { maximum: 20 }

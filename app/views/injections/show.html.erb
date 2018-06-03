@@ -27,49 +27,59 @@
 </div></div>
 </div>
 
+
+
+
 <div class="col-sm-10">
 
-
-
-
-<% @ninstructions.each do |ninstruction| %>  
+<% @injections.each do |injection| %>  
 <table class="table table-striped table-bordered table-condensed table-hover" style="table-layout:fixed;width:90%;">
 
-<td rowspan="2" style="width:20%" class="success">
-  <% if ninstruction.actflag == '実施' %>
+<tr>
+<td rowspan="3" style="width:20%" class="success">
+  <% if injection.actflag == '実施' %>
   <h3><span class="label label-danger">実施</span></h3>
-  <% elsif ninstruction.actflag == '中止' %>
+  <% elsif injection.actflag == '中止' %>
   <h3><span class="label label-warning">中止</span></h3>
   <% else %>
   <h3><span class="label label-info">未実施</span></h3>
   <% end %>
 </td>
 <td class="success">
-  予定時間：<%= ninstruction.yoteitime.strftime('%Y年%m月%d日%H時') %>
+  <h4><%= injection.pattern %></h4>
 </td>
 </tr>
 <tr>
 <td class="success">
-  <% if ninstruction.actflag == '実施' %>
-    実施時間：<%= ninstruction.acttime.strftime('%Y年%m月%d日%H時%M分') %>
-  <% elsif ninstruction.actflag == '中止' %>
-   実施時間：<%= ninstruction.acttime.strftime('%Y年%m月%d日%H時%M分') %>
+  予定時間：<%= injection.yoteitime.strftime('%Y年%m月%d日%H時') %>
+</td>
+</tr>
+<tr>
+<td class="success">
+  <% if injection.actflag == '実施' %>
+    実施時間：<%= injection.acttime.strftime('%Y年%m月%d日%H時%M分') %>
+  <% elsif injection.actflag == '中止' %>
+   実施時間：<%= injection.acttime.strftime('%Y年%m月%d日%H時%M分') %>
   <% else %>
     実施時間：
   <% end %>
 </td>
 </tr>
+
+
+
+
 <tr>
 <td colspan="2">
-  <font size="+1"><%= ninstruction.sijiname %></font><br>
-  <font size="+1"><%= simple_format(ninstruction.siji) %></font>
+  <font size="+1"><%= injection.sijiname %></font><br>
+  <font size="+1"><%= simple_format(injection.siji) %></font>
 </td>
 </tr>
 </table>
 <% end %>
 
 
-<%= link_to '一覧に戻る', ninstructions_path %>
+<%= link_to '一覧に戻る', injections_path %>
 
 </div>
 

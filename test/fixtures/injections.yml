@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: one
+  yoteitime: 2018-06-03 11:54:43
+  acttime: 2018-06-03 11:54:43
+  actflag: 1
+  sijiname: MyString
+  siji: MyString
+  pattern: 1
+
+two:
+  patient: two
+  yoteitime: 2018-06-03 11:54:43
+  acttime: 2018-06-03 11:54:43
+  actflag: 1
+  sijiname: MyString
+  siji: MyString
+  pattern: 1

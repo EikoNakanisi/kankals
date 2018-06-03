@@ -1,0 +1,36 @@
+<div class="honbun">
+
+<div class="col-sm-10">
+<% @patients.each do |patient| %>
+<h2>
+<ruby><rb><%= patient.p_name %><rt><%= patient.p_kana %></ruby>
+<a href="../naifukus/<%= patient.id %>">内服処方</a>
+</h2>
+
+   
+<table class="table table-striped table-bordered table-condensed table-hover" style="table-layout:fixed;width:100%;">
+  <tr>
+   <th class="text-center">患者</th>
+   <th class="text-center">id</th>
+   <th class="text-center">指示名</th>
+  </tr>
+<% patient.naifukus.each do |naifuku| %>
+  <tr>
+   <th style="width:5%" class="text-center"><%= naifuku.patient_id %></th>
+   <td style="width:5%" class="text-center"><%= link_to naifuku.id, edit_naifuku_path(naifuku) %></td>
+   <td style="word-wrap:break-word;" class="text-left"><%= naifuku.sijiname %></td> 
+  </tr>
+
+  <% end %>
+</table>
+
+<% end %>
+<%= link_to '新規投稿', new_naifuku_path %>
+<%= form_tag import_naifukus_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "インポート" %>
+<% end %>
+</div>
+
+</div>
+
