@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180603055112) do
+ActiveRecord::Schema.define(version: 20180603080202) do
 
   create_table "dinstructions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "patient_id"
@@ -100,6 +100,18 @@ ActiveRecord::Schema.define(version: 20180603055112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["patient_id"], name: "index_kansatus_on_patient_id", using: :btree
+  end
+
+  create_table "ninstructions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "patient_id"
+    t.datetime "yoteitime"
+    t.datetime "acttime"
+    t.integer  "actflag"
+    t.string   "sijiname"
+    t.string   "siji"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_ninstructions_on_patient_id", using: :btree
   end
 
   create_table "nreports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -267,6 +279,7 @@ ActiveRecord::Schema.define(version: 20180603055112) do
   add_foreign_key "dreports", "patients"
   add_foreign_key "ereports", "patients"
   add_foreign_key "kansatus", "patients"
+  add_foreign_key "ninstructions", "patients"
   add_foreign_key "nreports", "patients"
   add_foreign_key "pdetails", "plans"
   add_foreign_key "plans", "patients"

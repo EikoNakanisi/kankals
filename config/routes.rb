@@ -72,9 +72,16 @@ Rails.application.routes.draw do
   end
 
   resources :dinstructions do
-  collection { post :import }
+    collection do
+      post :import
+    end
   end
-  
+  resources :ninstructions do
+    collection do
+      post :import
+    end
+  end
+
   
   
 end

@@ -1,0 +1,43 @@
+<%= form_for(ninstruction) do |f| %>
+  <div class="row">
+    <div class="col-sm-6">
+<form class="form-inline">
+
+    <div class="form-group">
+    <%= f.label :patient_id, '患者ＩＤ' %>
+    <%= f.text_field :patient_id, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :actflag, '実施フラグ' %>
+    <%= f.select :actflag, Ninstruction.actflags.keys, {prompt: '選択してください'}, class: 'form-control btn btn-info' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :yoteitime, '予定時間' %>
+    <%= f.datetime_select :yoteitime,
+    :start_year => Time.now.year,
+    :end_year => Time.now.year + 2,
+    :use_month_numbers => true,
+    :minute_step => 10 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :acttime, '実施時間' %>
+    <%= f.datetime_select :acttime,
+    :start_year => Time.now.year,
+    :end_year => Time.now.year + 2,
+    :use_month_numbers => true,
+    :minute_step => 10 %>
+  </div>
+  <div class="form-group">
+  <%= f.label :sijiname, '指示名' %><%= f.text_area :sijiname, class: 'form-control', rows: 1 %>
+  <%= f.label :siji, '指示説明' %><%= f.text_area :siji, class: 'form-control', rows: 3 %>
+
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">投稿</button>
+</form>
+
+</div>
+</div>
+<% end %>

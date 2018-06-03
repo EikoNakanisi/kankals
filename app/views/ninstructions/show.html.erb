@@ -1,0 +1,94 @@
+<div class="col-sm-12">
+<div class="bs-docs-header" id="content">
+<div class="container">
+
+<div class="row">
+  <div class="col-md-2"><h2><ruby><rb><%= @patient.p_name %><rt><%= @patient.p_kana %></ruby></h2></div>
+
+<% if @patient.gender == '男' %>
+<div class="col-sm-1"><br><img border="0" src="../images/men1.png" width="60" height="60" alt="男性" title="男性"></div>
+<% else %>
+<div class="col-sm-1"><br><img border="0" src="../images/women1.png" width="60" height="60" alt="女性" title="女性"></div>
+<% end %>
+
+  <div class="col-md-4"><h3>生年月日：<%= @patient.birth_date.strftime('%Y年%m月%d日') %></h3></div>
+  <div class="col-md-2"><h3>年齢：<%= @patient.age %>歳</h3></div>
+<div class="col-sm-6"><h4>感染症：<%= @patient.infection %>&emsp;
+アレルギー：<%= @patient.allergic %></h4></div>
+</div>
+
+<div class="row">
+  <div class="col-md-3"><h4>入院日:<%= @patient.hos_date.strftime('%Y年%m月%d日 %H:%M') %></h4></div>
+  <div class="col-md-2"><h4>部屋番号：<%= @patient.room_no %></h4></div>
+  <div class="col-md-5"><h4>血液型：<%= @patient.bloodtype %>型&emsp;&emsp;身長：<%= @patient.height %>cm&emsp;体重：<%= @patient.weight %>kg
+</h4></div>
+</div>
+
+</div></div>
+</div>
+
+<div class="col-sm-10">
+<div class="col-md-3 col-md-offset-3">
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    看護指示特定検索
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  <% @ninstructions.each do |ninstruction| %>
+    <li><a href="#an<%= ninstruction.id %>"><%= ninstruction.sijiname %></a></li>
+  <% end %>
+  </ul>
+</div>
+</div>
+<br><hr />
+
+
+<div class="col-sm-10">
+
+<% @ninstructions.each do |ninstruction| %>  
+<table class="table table-striped table-bordered table-condensed table-hover" style="table-layout:fixed;width:90%;">
+
+<td rowspan="2" style="width:20%" class="success">
+  <% if ninstruction.actflag == '実施' %>
+  <h3><span class="label label-danger">実施</span></h3>
+  <% elsif ninstruction.actflag == '中止' %>
+  <h3><span class="label label-warning">中止</span></h3>
+  <% else %>
+  <h3><span class="label label-info">未実施</span></h3>
+  <% end %>
+</td>
+<td class="success">
+  予定時間：<%= ninstruction.yoteitime.strftime('%Y年%m月%d日%H時') %>
+</td>
+</tr>
+<tr>
+<td class="success">
+  <% if ninstruction.actflag == '実施' %>
+    実施時間：<%= ninstruction.acttime.strftime('%Y年%m月%d日%H時%M分') %>
+  <% elsif ninstruction.actflag == '中止' %>
+   実施時間：<%= ninstruction.acttime.strftime('%Y年%m月%d日%H時%M分') %>
+  <% else %>
+    実施時間：
+  <% end %>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+  <font size="+1"><%= ninstruction.sijiname %></font><br>
+  <font size="+1"><%= simple_format(ninstruction.siji) %></font>
+</td>
+</tr>
+</table>
+<% end %>
+
+
+<%= link_to '一覧に戻る', ninstructions_path %>
+</div>
+</div>
+
+
+
+<div class="row col-sm-2">
+<%= render 'layouts/sidebar' %>
+</div>
