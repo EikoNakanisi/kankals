@@ -1,0 +1,35 @@
+<%= form_for(dinstruction) do |f| %>
+  <div class="row">
+    <div class="col-sm-6">
+<form class="form-inline">
+
+    <div class="form-group">
+    <%= f.label :patient_id, '患者ＩＤ' %>
+    <%= f.text_field :patient_id, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sijiflag, '実施フラグ' %>
+    <%= f.select :sijiflag, Dinstruction.sijiflags.keys, {prompt: '選択してください'}, class: 'form-control btn btn-info' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :gotime, '実施日時' %>
+    <%= f.datetime_select :gotime,
+    :start_year => Time.now.year,
+    :end_year => Time.now.year + 2,
+    :use_month_numbers => true,
+    :minute_step => 10 %>
+  </div>
+  <div class="form-group">
+  <%= f.label :sijiname, '指示名' %><%= f.text_area :sijiname, class: 'form-control', rows: 1 %>
+  <%= f.label :siji, '内容' %><%= f.text_area :siji, class: 'form-control', rows: 3 %>
+
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">投稿</button>
+</form>
+
+</div>
+</div>
+<% end %>

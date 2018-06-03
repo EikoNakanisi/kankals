@@ -71,5 +71,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :dinstructions do
+  collection { post :import }
+  end
+  
+  
+  
 end
 

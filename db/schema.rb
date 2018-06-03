@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180528022347) do
+ActiveRecord::Schema.define(version: 20180603055112) do
+
+  create_table "dinstructions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "patient_id"
+    t.string   "sijiname"
+    t.text     "siji",       limit: 65535
+    t.integer  "sijiflag"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.datetime "gotime"
+    t.index ["patient_id"], name: "index_dinstructions_on_patient_id", using: :btree
+  end
 
   create_table "dreports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "patient_id"
@@ -252,6 +263,7 @@ ActiveRecord::Schema.define(version: 20180528022347) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "dinstructions", "patients"
   add_foreign_key "dreports", "patients"
   add_foreign_key "ereports", "patients"
   add_foreign_key "kansatus", "patients"
