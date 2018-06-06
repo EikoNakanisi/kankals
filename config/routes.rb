@@ -91,6 +91,10 @@ Rails.application.routes.draw do
     end
   end
   
-  
+  resources :results, only: [:show]
+
+
+
+
 end
 
