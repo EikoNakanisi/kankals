@@ -49,9 +49,8 @@ Rails.application.routes.draw do
       post :import
     end
   end
-  resources :sensors
 
-  resources :kekkas
+  resources :kekkas, only: [:show,:index]
   resources :plans
 
   resources :pdetails do
