@@ -12,8 +12,8 @@ end
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << csv_column_names
-      all.each do |tentou|
-        csv << tentou.csv_column_values
+      all.each do |enshu|
+        csv << enshu.csv_column_values
       end
     end
   end

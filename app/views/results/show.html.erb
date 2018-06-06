@@ -42,6 +42,27 @@
    <th style="width:10%" class="text-center"><font size="+1">上限値</font></th> 
    <th style="width:10%" class="text-center"><font size="+1">単位</font></th> 
   </tr>
+
+<% @saiketus.each do |saiketu| %>
+  <tr>
+   <td class="text-center"><%= saiketu.id %></td>
+   <td style="word-wrap:break-word;" class="text-left"><font size="+1"><%= saiketu.koumoku %></font></td> 
+<% if saiketu.kekka_m == 'H' %>
+   <td class="text-right"><font size="+1"color="#EE0000"><%= saiketu.kekka %></font></td> 
+   <td class="text-center"><font size="+1"color="#EE0000"><%= saiketu.kekka_m %></font></td>
+<% elsif saiketu.kekka_m == 'L' %>
+   <td class="text-right"><font size="+1"color="#0000FF"><%= saiketu.kekka %></font></td> 
+   <td class="text-center"><font size="+1"color="#0000FF"><%= saiketu.kekka_m %></font></td>
+<% else %>
+   <td style="word-wrap:break-word;" class="text-right"><font size="+1"><%= saiketu.kekka %></font></td> 
+   <td style="word-wrap:break-word;" class="text-center"><font size="+1"><%= saiketu.kekka_m %></font></td>
+<% end %>
+   <td style="word-wrap:break-word;" class="text-right"><font size="+1"><%= saiketu.sita %></font></td> 
+   <td style="word-wrap:break-word;" class="text-right"><font size="+1"><%= saiketu.ue %></font></td> 
+   <td style="word-wrap:break-word;" class="text-left"><font size="+1"><%= saiketu.tani %></font></td>
+  </tr>
+
+  <% end %>
 </table>
 
 <%= link_to '一覧に戻る', kekkas_path %>

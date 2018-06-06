@@ -3,8 +3,7 @@ class EnshusController < ApplicationController
 
   def index
     @enshus = Enshu.all.order("id ASC")
-    @q        = Enshu.search(params[:q])
-    @enshus = @q.result(distinct: true)
+    
     respond_to do |format|
       format.html
       format.csv { send_data @enshus.to_csv }
@@ -16,7 +15,11 @@ class EnshusController < ApplicationController
       Enshu.import(params[:file])
       redirect_to enshus_url, notice: "追加しました。"
     end
+
   end
+
+
+
 
   def show
     @enshu = Enshu.find(params[:id])
